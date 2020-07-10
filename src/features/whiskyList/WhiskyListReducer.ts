@@ -1,25 +1,23 @@
-import { createSlice } from '@reduxjs/toolkit';
-// import { AppThunk, AppDispatch } from '../store/store'
+import { createSlice, PayloadAction  } from '@reduxjs/toolkit';
+import { AppThunk, AppDispatch } from '../../store/store';
+import { readWhiskys } from '../../api/local/apiGateway';
 import Whisky from '../../models/whisky';
 
-const testWhisky:Whisky = {
-    id: Math.random().toString(36).substr(2, 9),
-    name: "Old Grand-Dad Bonded Bourbon",
-    type: "Kentucky Straight Bourbon Whiskey",
-    age: "At least 4 years",
-    proof: 100,
-    bonded: true,
-    distillery: "Beam Suntory",
-    country: "United States",
-    image: "https://images.freshop.com/00080686408406/32681511f32a626cd2e37bbc4ffd7eba_large.png"
-};
-
-const initialState: Whisky[] = [testWhisky];
+const initialState: Whisky[] = [];
 
 const whiskySlice = createSlice({
     name: 'whiskys',
     initialState,
-    reducers: {}
+    reducers: {
+        receiveTodos(state, action: PayloadAction<Whisky[]>) {
+            return action.payload;
+        },
+    }
 });
+
+export const loadWhiskys = (): AppThunk => async (dispatch: AppDispatch) => {
+    const todos = await readWhiskys();
+    dispatch(whiskySlice.actions.receiveTodos(todos))
+  }
 
 export default whiskySlice.reducer;
