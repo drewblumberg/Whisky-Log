@@ -1,0 +1,48 @@
+.whisky-list {
+  list-style-type: none;
+  background-image: url(../../assets/tileable_wood_texture.png);
+  padding: 10px;
+  margin-top: -10px;
+}
+
+.whisky-item {
+  margin-bottom: 10px;
+  padding: 0 10px 10px 10px;
+}
+
+.whisky-item:first-child {
+  margin-top: 20px;
+}
+
+.whisky-item:last-child {
+  margin-bottom: 0;
+}
+
+.whisky-item-image-container {
+  position: relative;
+  overflow: hidden;
+  border-radius: 25%;
+  display: inline-block;
+}
+
+.whisky-item-image {
+  margin: 0 auto;
+  height: 100px;
+}
+
+.whisky-item-info {
+  margin-left: 10px;
+  display: inline-block;
+  position: relative;
+  bottom: 40px;
+}
+
+.whisky-item-name {
+  font-size: 25px;
+  font-family: "Cinzel", serif;
+}
+
+.whisky-item-other {
+    display: block;
+    font-size: 12px;
+}
