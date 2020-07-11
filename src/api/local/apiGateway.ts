@@ -7,11 +7,7 @@ interface GetWhiskysResponse {
 }
 
 export async function readWhiskys(): Promise<Whisky[]> {
-    const response = await axios.get<GetWhiskysResponse>(baseUrl + 'whiskyList', {
-        headers: {
-          'Access-Control-Allow-Origin': '*',
-        }
-    });
+    const response = await axios.get<GetWhiskysResponse>(baseUrl + 'whiskyList');
 
     return response.data.records;
 }

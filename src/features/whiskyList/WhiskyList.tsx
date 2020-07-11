@@ -17,7 +17,7 @@ export default function WhiskyList() {
   return (
     <ul>
       {whiskys.map(whisky => (
-        <WhiskyListItem name={whisky.name} />
+        <WhiskyListItem key={whisky.id} name={whisky.name} />
       ))}
     </ul>
   );
